@@ -20,15 +20,15 @@ public class CCMCCommand implements CommandExecutor {
         int length = args.length;
 
         if (cmd.getName().equalsIgnoreCase("ccmc")) {
-            if (!source.hasPermission(PermLib.CMD_CCMC)) {
+            if (source.hasPermission(PermLib.CMD_CCMC)) {
+                source.sendMessage(ChatLib.Messages.CMD_CCMC_USEHELP);
+                source.sendMessage(ChatLib.Messages.PL_VERSION);
+
+                return true;
+            } else {
                 source.sendMessage(ChatLib.Messages.NO_PERMS);
                 return true;
             }
-
-            source.sendMessage(ChatLib.Messages.CMD_CCMC_USEHELP);
-            source.sendMessage(ChatLib.Messages.PL_VERSION);
-
-            return true;
         }
 
         return false;
