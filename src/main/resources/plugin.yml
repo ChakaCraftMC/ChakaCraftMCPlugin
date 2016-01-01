@@ -1,0 +1,22 @@
+name: ChakaCraftMC
+version: 1.0.0-B1
+main: cf.chakacraftmc.plugin.ChakaCraftMC
+commands:
+  ccmc:
+    description: The main command.
+    usage: /<command>
+    permission: ccmc.cmd
+permissions:
+  ccmc.admin:
+    description: Admins Node
+    children:
+      ccmc.mod: true
+      ccmc.player: true
+  ccmc.mod:
+    description: Moderator Node
+    children:
+      ccmc.player: true
+  ccmc.player:
+    description: Player Node
+    children:
+      ccmc.cmd: true
