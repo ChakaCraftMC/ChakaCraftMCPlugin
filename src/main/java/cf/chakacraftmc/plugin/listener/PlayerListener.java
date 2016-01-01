@@ -30,7 +30,7 @@ public class PlayerListener implements Listener {
         String uuid = player.getUniqueId().toString();
 
         try {
-            String driver = "org.gjt.mm.mysql.Driver";
+            String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://104.243.39.107/ccmc_pl";
             Class.forName(driver);
 
