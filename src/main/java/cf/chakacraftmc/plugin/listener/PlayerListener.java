@@ -34,7 +34,7 @@ public class PlayerListener implements Listener {
             String url = "jdbc:mysql://104.243.39.107/ccmc_pl";
             Class.forName(driver);
 
-            Connection con = DriverManager.getConnection(url, "remote", "chris2112");
+            Connection con = DriverManager.getConnection(url, "devtest", "devtest");
 
             String query = "INSERT INTO players (username, uuid) VALUES (?, ?)";
 
