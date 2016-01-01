@@ -27,6 +27,8 @@ public class CCMCCommand implements CommandExecutor {
 
             source.sendMessage(ChatLib.Messages.CMD_CCMC_USEHELP);
             source.sendMessage(ChatLib.Messages.PL_VERSION);
+
+            return true;
         }
 
         return false;
