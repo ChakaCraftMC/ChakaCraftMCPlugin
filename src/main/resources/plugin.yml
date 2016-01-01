@@ -1,5 +1,5 @@
 name: ChakaCraftMC
-version: 1.0.0-B3
+version: 1.0.0-B4
 main: cf.chakacraftmc.plugin.ChakaCraftMC
 commands:
   ccmc:

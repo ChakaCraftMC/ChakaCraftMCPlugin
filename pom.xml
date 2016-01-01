@@ -6,7 +6,7 @@
 
     <groupId>cf.chakacraftmc.plugin</groupId>
     <artifactId>ChakaCraftMC</artifactId>
-    <version>1.0.0-B3</version>
+    <version>1.0.0-B4</version>
 
     <repositories>
         <repository>
