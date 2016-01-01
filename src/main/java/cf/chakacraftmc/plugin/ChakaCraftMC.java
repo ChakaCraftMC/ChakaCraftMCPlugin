@@ -11,7 +11,7 @@ import java.util.logging.Level;
 
 public class ChakaCraftMC extends JavaPlugin {
 
-    public static final String VERSION = "1.0.0-B9";
+    public static final String VERSION = "1.0.0-B10";
 
     private PluginManager pm = this.getServer().getPluginManager();
 

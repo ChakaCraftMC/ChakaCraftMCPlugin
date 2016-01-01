@@ -27,32 +27,34 @@ public class PlayerListener implements Listener {
 
         Player player = event.getPlayer();
 
-        String name = player.getName();
-        String uuid = player.getUniqueId().toString();
+        if (!player.hasPlayedBefore()) {
+            String name = player.getName();
+            String uuid = player.getUniqueId().toString();
 
-        String host = Config.getConfig().getString("mysql.host");
-        String db = Config.getConfig().getString("mysql.db");
-        String user = Config.getConfig().getString("mysql.user");
-        String pass = Config.getConfig().getString("mysql.pass");
+            String host = Config.getConfig().getString("mysql.host");
+            String db = Config.getConfig().getString("mysql.db");
+            String user = Config.getConfig().getString("mysql.user");
+            String pass = Config.getConfig().getString("mysql.pass");
 
-        try {
-            String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://" + host + "/" + db;
-            Class.forName(driver);
+            try {
+                String driver = "com.mysql.jdbc.Driver";
+                String url = "jdbc:mysql://" + host + "/" + db;
+                Class.forName(driver);
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+                Connection con = DriverManager.getConnection(url, user, pass);
 
-            String query = "INSERT INTO players (username, uuid) VALUES (?, ?)";
+                String query = "INSERT INTO players (username, uuid) VALUES (?, ?)";
 
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, name);
-            stmt.setString(2, uuid);
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setString(1, name);
+                stmt.setString(2, uuid);
 
-            stmt.execute();
+                stmt.execute();
 
-            con.close();
-        } catch (Exception e) {
-            this.plugin.getLogger().log(Level.WARNING, "An Error has occurred: " + e);
+                con.close();
+            } catch (Exception e) {
+                this.plugin.getLogger().log(Level.WARNING, "An Error has occurred: " + e);
+            }
         }
     }
 }
