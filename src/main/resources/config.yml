@@ -1,0 +1,6 @@
+mysql:
+  host: localhost
+  db: ccmc_pl
+  user: 'root'
+  pass: ''
+version: 0

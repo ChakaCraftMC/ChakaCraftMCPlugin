@@ -1,6 +1,7 @@
 package cf.chakacraftmc.plugin.listener;
 
 import cf.chakacraftmc.plugin.ChakaCraftMC;
+import cf.chakacraftmc.plugin.lib.Config;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,12 +30,17 @@ public class PlayerListener implements Listener {
         String name = player.getName();
         String uuid = player.getUniqueId().toString();
 
+        String host = Config.getConfig().getString("mysql.host");
+        String db = Config.getConfig().getString("mysql.db");
+        String user = Config.getConfig().getString("mysql.user");
+        String pass = Config.getConfig().getString("mysql.pass");
+
         try {
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://104.243.39.107/ccmc_pl";
+            String url = "jdbc:mysql://" + host + "/" + db;
             Class.forName(driver);
 
-            Connection con = DriverManager.getConnection(url, "devtest", "devtest");
+            Connection con = DriverManager.getConnection(url, user, pass);
 
             String query = "INSERT INTO players (username, uuid) VALUES (?, ?)";
 
